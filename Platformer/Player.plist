@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>idleAnim</key>
+	<dict>
+		<key>animationFrames</key>
+		<string>1</string>
+		<key>delay</key>
+		<real>0.05</real>
+		<key>filenamePrefix</key>
+		<string>player_run</string>
+	</dict>
+	<key>walkingAnim</key>
+	<dict>
+		<key>animationFrames</key>
+		<string>2,3,4,5,6,7,8,9,10,11,12,1</string>
+		<key>delay</key>
+		<real>0.05</real>
+		<key>filenamePrefix</key>
+		<string>player_run</string>
+	</dict>
+</dict>
+</plist>

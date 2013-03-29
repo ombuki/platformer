@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="100" height="30" tilewidth="64" tileheight="64">
+ <tileset firstgid="1" name="border" tilewidth="64" tileheight="64">
+  <image source="border.png" width="448" height="320"/>
+  <tile id="0">
+   <properties>
+    <property name="onlyBottom" value="True"/>
+    <property name="onlyLeft" value="True"/>
+    <property name="onlyRight" value="True"/>
+    <property name="onlyTop" value="True"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="onlyRight" value="True"/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="onlyLeft" value="True"/>
+   </properties>
+  </tile>
+  <tile id="4">
+   <properties>
+    <property name="onlyTop" value="True"/>
+   </properties>
+  </tile>
+  <tile id="5">
+   <properties>
+    <property name="onlyBottom" value="True"/>
+   </properties>
+  </tile>
+  <tile id="11">
+   <properties>
+    <property name="onlyLeft" value="True"/>
+    <property name="onlyRight" value="True"/>
+    <property name="onlyTop" value="True"/>
+   </properties>
+  </tile>
+  <tile id="14">
+   <properties>
+    <property name="onlyBottom" value="True"/>
+    <property name="onlyRight" value="True"/>
+   </properties>
+  </tile>
+  <tile id="15">
+   <properties>
+    <property name="onlyBottom" value="True"/>
+    <property name="onlyTop" value="True"/>
+   </properties>
+  </tile>
+  <tile id="17">
+   <properties>
+    <property name="onlyBottom" value="True"/>
+    <property name="onlyLeft" value="True"/>
+    <property name="onlyTop" value="True"/>
+   </properties>
+  </tile>
+  <tile id="19">
+   <properties>
+    <property name="onlyBottom" value="True"/>
+    <property name="onlyRight" value="True"/>
+    <property name="onlyTop" value="True"/>
+   </properties>
+  </tile>
+  <tile id="21">
+   <properties>
+    <property name="onlyRight" value="True"/>
+    <property name="onlyTop" value="True"/>
+   </properties>
+  </tile>
+  <tile id="22">
+   <properties>
+    <property name="onlyLeft" value="True"/>
+    <property name="onlyTop" value="True"/>
+   </properties>
+  </tile>
+  <tile id="25">
+   <properties>
+    <property name="onlyBottom" value="True"/>
+    <property name="onlyLeft" value="True"/>
+    <property name="onlyRight" value="True"/>
+   </properties>
+  </tile>
+  <tile id="26">
+   <properties>
+    <property name="rotation" value="90"/>
+    <property name="triangle" value="True"/>
+   </properties>
+  </tile>
+  <tile id="27">
+   <properties>
+    <property name="rotation" value="0"/>
+    <property name="triangle" value="True"/>
+   </properties>
+  </tile>
+  <tile id="28">
+   <properties>
+    <property name="onlyLeft" value="True"/>
+    <property name="onlyRight" value="True"/>
+   </properties>
+  </tile>
+  <tile id="30">
+   <properties>
+    <property name="onlyBottom" value="True"/>
+    <property name="onlyTop" value="True"/>
+   </properties>
+  </tile>
+  <tile id="33">
+   <properties>
+    <property name="rotation" value="180"/>
+    <property name="triangle" value="True"/>
+   </properties>
+  </tile>
+  <tile id="34">
+   <properties>
+    <property name="rotation" value="270"/>
+    <property name="triangle" value="True"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="borderLayer" width="100" height="30" opacity="0">
+  <data encoding="base64" compression="zlib">
+   eJztlOEKwjAMBqtMH0DEgSC+/1s6GMMStq6ZqfvEO8iP0i4kvaUpvTlnAftyNOvHLlXABD60wIcW+NACH1rgQwt8aIEPLfChBT60wIcW+NACH1rgQwt8aIEPLfChBT60wIcWW30cogv5IS5DPAtxXflmbn+C+dACH1r8mw/1d9b6uJu1rd++naW3cImWd9IPcWuQd+p7S7+WUv/WRyuWapi7vzVfdj9fd+l7PbWgRe2ef7Tm/qLz1RA5Dx5a+PDcSc3Z6HzqnILDk7fmbHS+PPK56z/s286wJx+M5LPUBeby5nsBFQMISw==
+  </data>
+ </layer>
+ <objectgroup name="objectLayer" width="100" height="30">
+  <object name="tiltilPos" x="266" y="1656" width="25" height="16"/>
+ </objectgroup>
+</map>
