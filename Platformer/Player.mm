@@ -30,7 +30,8 @@
             action = [CCAnimate actionWithAnimation:idleAnim];
             break;
         case kStateWalking:
-            action = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:walkingAnim]];
+            action = [CCRepeatForever actionWithAction:
+                      [CCAnimate actionWithAnimation:walkingAnim]];
             break;
         default:
             CCLOG(@"Unhandled state %d in Player", newState);
@@ -85,19 +86,27 @@
     float velocityX = fabsf(self.playerBody->GetLinearVelocity().x);
     float velocityY = self.playerBody->GetLinearVelocity().y;
     
-    BOOL shoulJump = [CollisionManager detectIfColliding:playerBody];
-    if (shoulJump) {
+    BOOL shouldJump = [CollisionManager detectIfColliding:playerBody
+                                        andCollisionType:&collisionType];
+    
+//    BOOL clingToWall = collisionType == kCollisionWall;
+//
+//    CCLOG(@"Colliding with %@", clingToWall ? @"wall" : @"ground");
+    
+    if (shouldJump) {
         playerBody->SetLinearVelocity(b2Vec2(playerBody->GetLinearVelocity().x*0.5,
                                              playerBody->GetLinearVelocity().y));
     } else {
-        playerBody->SetLinearVelocity(b2Vec2(playerBody->GetLinearVelocity().x*0.9,
+        playerBody->SetLinearVelocity(b2Vec2(playerBody->GetLinearVelocity().x*0.97,
                                              playerBody->GetLinearVelocity().y));
     }
+    
     if (velocityX<7) {
-        if (playerShouldMoveLeft || playerShouldMoveRight) {
+        if (playerShouldMove){
             playerVelocity += 0.05f;
             if(playerVelocity > 6.0f)
                 playerVelocity = 6.0f;
+            
             if (self.flipX) {
                 playerBody->ApplyLinearImpulse(b2Vec2(playerVelocity, 0),
                                                playerBody->GetWorldCenter());
@@ -110,7 +119,7 @@
     
     if (velocityY<7){
         if (playerShouldJump) {
-            if (shoulJump && !jumpOnce){
+            if (shouldJump && !jumpOnce){
                 jumpHeight += 0.01f;
                 if(jumpHeight > 12.0f)
                     jumpHeight = 12.0f;
@@ -122,7 +131,7 @@
         }
     }
     
-    if (shoulJump && fabsf(playerBody->GetLinearVelocity().x)<2.0f) {
+    if (shouldJump && fabsf(playerBody->GetLinearVelocity().x)<2.0f) {
         if (characterState!=kStateIdle) {
             [self changeState:kStateIdle];
         }

@@ -8,9 +8,10 @@
 
 #import "CCNode.h"
 #import "Box2D.h"
+#import "Constants.h"
 
 @interface CollisionManager : CCNode
 
-+(BOOL)detectIfColliding:(b2Body*) body;
++(BOOL)detectIfColliding:(b2Body*)body andCollisionType:(CollisionType*)collisionType;
 
 @end

@@ -28,7 +28,11 @@ typedef enum{
     kWallOnlyBottom,
     kWallOnlyLeft,
     kWallOnlyRight,
-}
-WallTypes;
+} WallTypes;
+
+typedef enum {
+    kCollisionWall,
+    kCollisionGround
+} CollisionType;
 
 #endif

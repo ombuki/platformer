@@ -13,14 +13,16 @@
     CCAnimation *idleAnim;
     CCAnimation *walkingAnim;
     
+    CollisionType collisionType;
+    
 @public
     b2Body *playerBody;
     
     float playerVelocity;
     float jumpHeight;
     
-    BOOL playerShouldMoveLeft;
-    BOOL playerShouldMoveRight;
+    BOOL playerShouldMove;
+//    BOOL playerShouldMoveRight;
     BOOL playerShouldJump;
     BOOL jumpOnce;
 

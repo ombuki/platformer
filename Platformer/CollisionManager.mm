@@ -7,19 +7,17 @@
 //
 
 #import "CollisionManager.h"
-#import "Constants.h"
 
 @implementation CollisionManager
 
-+(BOOL)detectIfColliding:(b2Body*) body {
++(BOOL)detectIfColliding:(b2Body*)body andCollisionType:(CollisionType *)collisionType{
     
     b2ContactEdge* edge = body->GetContactList();
     
     BOOL isBodyCollidingWithObject = NO;
     
-    if (!edge) {
-        isBodyCollidingWithObject = NO;
-    }
+    if (!edge)
+        return NO;
     
     while (edge) {
         b2Contact* contact = edge->contact;
@@ -33,10 +31,15 @@
         
         if ((bodyA == body && udBInt == kUserDataBorder)||
             (bodyB == body && udAInt == kUserDataBorder)) {
+            *collisionType = kCollisionGround;
             isBodyCollidingWithObject = YES;
             break;
-        }
-        else if((bodyA == body && udBInt == kUserDataSolidObject)||
+//        } else if ((bodyA == body && udBInt == kUserDataWall)||
+//             (bodyB == body && udAInt == kUserDataWall)) {
+//                *collisionType = kCollisionWall;
+//                isBodyCollidingWithObject = YES;
+//            break;
+        } else if((bodyA == body && udBInt == kUserDataSolidObject)||
                 (bodyB == body && udAInt == kUserDataSolidObject)) {
             if (contact->IsTouching()) {
                 isBodyCollidingWithObject = YES;

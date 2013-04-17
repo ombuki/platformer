@@ -1563,6 +1563,7 @@
 				67FE81B617063D2000C7FF85 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

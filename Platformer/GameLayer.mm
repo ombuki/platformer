@@ -161,8 +161,6 @@
         [self createTileMap];
         [TileMapBox2DWrapper createBorderForTileMap:tileMapNode
                                            andWorld:world];
-        
-        
         //we will create the player here        
         [self createPlayer];
         
@@ -172,15 +170,10 @@
 }
 
 -(void)draw {
-    
 	[super draw];
-	
 	ccGLEnableVertexAttribs( kCCVertexAttribFlag_Position );
-	
 	kmGLPushMatrix();
-	
 	world->DrawDebugData();
-    
     kmGLPopMatrix();
 }
 
@@ -208,26 +201,24 @@
     
     BOOL neededKeysDown = NO;
     
-    if (keyCode == 63235) {
-        neededKeysDown = YES;
-        player.flipX = YES;
-        player->playerVelocity = 4.0f;
-        player->playerShouldMoveRight = YES;
-        if (player->characterState != kStateWalking){
-            [player changeState:kStateWalking];
-        }
-    } else if (keyCode == 63234){
-        neededKeysDown = YES;
-        player.flipX = NO;
-        player->playerVelocity = 4.0f;
-        player->playerShouldMoveLeft = YES;
-        if (player->characterState != kStateWalking){
-            [player changeState:kStateWalking];
-        }
-    } else if (keyCode == 32) {
-        neededKeysDown = YES;
-        player->jumpHeight = 10.0f;
-        player->playerShouldJump = YES;
+    switch (keyCode) {
+        case 63235:
+        case 63234:
+            neededKeysDown = YES;
+            player.flipX = keyCode == 63235;
+            player->playerVelocity = 4.0f;
+            player->playerShouldMove = YES;
+            if (player->characterState != kStateWalking){
+                [player changeState:kStateWalking];
+            }
+            break;
+        case 32:
+            neededKeysDown = YES;
+            player->jumpHeight = 10.0f;
+            player->playerShouldJump = YES;
+            break;
+        default:
+            break;
     }
     
     return neededKeysDown;
@@ -240,19 +231,19 @@
     
     BOOL neededKeys = NO;
     
-    if (keyCode == 63235) {
-        player->playerShouldMoveRight = NO;
-        neededKeys = YES;
-    }
-    
-    if (keyCode == 63234){
-        player->playerShouldMoveLeft = NO;
-        neededKeys = YES;
-    }
-    if (keyCode == 32) {
-        player->playerShouldJump = NO;
-        player->jumpOnce = NO;
-        neededKeys = YES;
+    switch (keyCode) {
+        case 63235:
+        case 63234:
+            player->playerShouldMove = NO;
+            neededKeys = YES;
+            break;
+        case 32:
+            player->playerShouldJump = NO;
+            player->jumpOnce = NO;
+            neededKeys = YES;
+            break;
+        default:
+            break;
     }
     return neededKeys;
 }
